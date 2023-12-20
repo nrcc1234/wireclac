@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wire Area Calculator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #d3d3d3;
+    }
+
+    h1 {
+      color: #933;
+    }
+
+    form {
+      background-color: #ffffe0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(1, 0, 0, 0.1);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 12px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: crosshair;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #933;
+    }
+
+    span {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #007bff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Wire Area Calculator</h1>
+
+  <form>
+    Diameter 1: <input type="number" id="dia1" step="0.01"><br>
+    Diameter 2: <input type="number" id="dia2" step="0.01"><br>  
+    Diameter 3: <input type="number" id="dia3" step="0.01"><br>
+    Diameter 4: <input type="number" id="dia4" step="0.01"><br>
+    Diameter 5: <input type="number" id="dia5" step="0.01"><br>
+    Diameter 6: <input type="number" id="dia6" step="0.01"><br><br>
+    
+    <button type="button" onclick="calculate()">Calculate Area</button>
+    
+    <p>
+      Area 1: <span id="area1"></span> mm^2<br>
+      Area 2: <span id="area2"></span> mm^2<br>
+      Area 3: <span id="area3"></span> mm^2<br>
+      Area 4: <span id="area4"></span> mm^2<br>
+      Area 5: <span id="area5"></span> mm^2<br>
+      Area 6: <span id="area6"></span> mm^2<br>
+      Total Area: <span id="total-area"></span> mm^2
+    </p>
+
+  </form>
+
+  <script>
+    function calculate() {
+      var dia1 = parseFloat(document.getElementById("dia1").value); 
+      var dia2 = parseFloat(document.getElementById("dia2").value);
+      var dia3 = parseFloat(document.getElementById("dia3").value);  
+      var dia4 = parseFloat(document.getElementById("dia4").value);
+      var dia5 = parseFloat(document.getElementById("dia5").value);
+      var dia6 = parseFloat(document.getElementById("dia6").value);  
+
+      var area1 = Math.PI * dia1 * dia1 / 4;
+      var area2 = Math.PI * dia2 * dia2 / 4;
+      var area3 = Math.PI * dia3 * dia3 / 4;
+      var area4 = Math.PI * dia4 * dia4 / 4;
+      var area5 = Math.PI * dia5 * dia5 / 4;
+      var area6 = Math.PI * dia6 * dia6 / 4;
+      
+      var totalArea = area1 + area2 + area3 + area4 + area5 + area6;
+
+      document.getElementById("area1").innerHTML = area1.toFixed(2);
+      document.getElementById("area2").innerHTML = area2.toFixed(2);
+      document.getElementById("area3").innerHTML = area3.toFixed(2);
+      document.getElementById("area4").innerHTML = area4.toFixed(2);
+      document.getElementById("area5").innerHTML = area5.toFixed(2);
+      document.getElementById("area6").innerHTML = area6.toFixed(2);
+      document.getElementById("total-area").innerHTML = totalArea.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
